@@ -11,12 +11,13 @@ gc()
 library(dplyr) # dataframes
 library(tidyverse)  # split
 library(stringr)  # split
+library(testthat)
 
 # Functions ---------------------------------------------
 
 
 divisors = function(number, lim=NULL) {
-  list_d <- which(!n %% (1:(n/2)))
+  list_d <- which(!number %% (1:(number/2)))
     return(sum(list_d))}
 
 
@@ -24,7 +25,7 @@ divisors = function(number, lim=NULL) {
 buddy <- function(start, limit) {
   for (n in start:limit) {
     m <- divisors(n) - 1
-    if (n == s(m) - 1 && m > n) return(sprintf('(%d %d)', n, m))}
+    if (n == divisors(m) - 1 && m > n) return(sprintf('(%d %d)', n, m))}
   'Nothing'}
 
 
